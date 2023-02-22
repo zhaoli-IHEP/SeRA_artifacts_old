@@ -1,8 +1,9 @@
 
-julia> using SHA
+julia> using SymEngineExt
 
-julia> (bytes2hex∘sha256)("amplitude_diagram209.jld2")
-"cb0041f6b28f1643484ec5603551f3719680208e9b9ed41404ebdbc60b0895a2"
+julia> calc_sha256("amplitude_diagram209.jld2") # For single-top 
+"908cf2a1311744e4a2542f0a44afa3eefe024f5e0f1e2de16d66c50d39b239a6"
+
 
 
 
