@@ -12,8 +12,8 @@ julia> filename = "contractor.frm.tar.gz"
 "contractor.frm.tar.gz"
 
 julia> println("sha256: ", bytes2hex(open(sha256, filename)))
-sha256: 7e9103a2cfd4b68dee6ae53e0100739bf7b09acba011116b1e207066389a37e0
+sha256: dccd30b6a8b457cbe51e7ae8ba563f645b9543f7b0cd144fba02d7becf5a375b
 
 julia> println("git-tree-sha1: ", Tar.tree_hash(IOBuffer(inflate_gzip(filename))))
-git-tree-sha1: f5c2210da9cb267cfc017ba93041f44d2c4d0ab8
+git-tree-sha1: c47fd5858367071d9052cbedcc39dcb154c717a8
 
