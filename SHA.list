@@ -4,7 +4,16 @@ julia> using AmpTools
 julia> calc_sha256("amplitude_diagram209.jld2")
 "f3c74abbc021f3929685649980be9bca92f608aed75aee426ccd737dfe1434c1"
 
-julia> calc_sha256("contractor.frm")
-"7eea52c64f7533a4b92a213ea34d6831bc75b551a6bfea6db03e3500bb19a3cc"
+-------------------------
 
+julia> using Tar, Inflate, SHA
+
+julia> filename = "contractor.frm.tar.gz"
+"contractor.frm.tar.gz"
+
+julia> println("sha256: ", bytes2hex(open(sha256, filename)))
+sha256: 7e9103a2cfd4b68dee6ae53e0100739bf7b09acba011116b1e207066389a37e0
+
+julia> println("git-tree-sha1: ", Tar.tree_hash(IOBuffer(inflate_gzip(filename))))
+git-tree-sha1: f5c2210da9cb267cfc017ba93041f44d2c4d0ab8
 
