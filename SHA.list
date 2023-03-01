@@ -4,4 +4,7 @@ julia> using AmpTools
 julia> calc_sha256("amplitude_diagram209.jld2")
 "f3c74abbc021f3929685649980be9bca92f608aed75aee426ccd737dfe1434c1"
 
+julia> calc_sha256("contractor.frm")
+"7eea52c64f7533a4b92a213ea34d6831bc75b551a6bfea6db03e3500bb19a3cc"
+
 
