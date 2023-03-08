@@ -2,7 +2,7 @@
 julia> using AmpTools
 
 julia> calc_sha256("amplitude_diagram209.jld2")
-"f3c74abbc021f3929685649980be9bca92f608aed75aee426ccd737dfe1434c1"
+"f4de604d8b56fe35d8f4313ff5e8d53187c10a30af5df0b78dfb1e1a1eca6c52"
 
 -------------------------
 
