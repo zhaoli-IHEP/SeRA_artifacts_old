@@ -1,8 +1,14 @@
 
 julia> using AmpTools
 
-julia> calc_sha256("amp209.jld2")
+julia> calc_sha256("b_g_TO_Wminus_t_2Loop_amplitudes/amp209.jld2")
 "f4de604d8b56fe35d8f4313ff5e8d53187c10a30af5df0b78dfb1e1a1eca6c52"
+
+julia> calc_sha256("Wplus_t_TO_Wplus_t_3Loop_amplitudes/amp99.jld2")
+"ad2ac7b875d475347660650e231031501be0c8904c08666b5e9e0da2ffc265b5"
+
+julia> calc_sha256("Wplus_t_TO_Wplus_t_3Loop_amplitudes/amp935.jld2")
+"fd0a3748dfe95678e47b67ed7629bdb5aed631ed640fd0d4c554274f45d4baee"
 
 
 -------------------------
