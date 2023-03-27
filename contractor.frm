@@ -16,7 +16,7 @@ set LOOP: q1,q2,q3,q4;
 set NonLOOP: k1,...,k10,K1,...,K10;
 set MOM: k1,...,k10,K1,...,K10,q1,q2,q3,q4;
 
-symbol pi, im, I, sqrt2, shat;
+symbol pi, im, sqrt2, shat;
 auto symbol ver, gc;
 
 ***Dirac indices
@@ -29,7 +29,7 @@ Set RHO: rho,rho0,...,rho200;
 Set EPMU: epMU1,...,epMU100;
 Set DUM: dum1,...,dum100;
 Set NonEPMU: mua,mua0,...,mua100,mub,mub0,...,mub100,
-             muv,muv0,...,muv10000,muw, muw0,...,muw10000,
+             muv,muv0,...,muv10000,muw,muw0,...,muw10000,
              dum1,...,dum100;
 
 Set LOR: mua,mua0,...,mua100,mub,mub0,...,mub100,muv,muv0,...,muv10000,muw,muw0,...,muw10000,
@@ -74,7 +74,7 @@ Symbol tildeMinv31,tildeMinv32, tildeMinv33;
 Set TILDEMINV: tildeMinv11,tildeMinv12,tildeMinv13,tildeMinv21,tildeMinv22,tildeMinv23,tildeMinv31,tildeMinv32,tildeMinv33;
 set XI: x1,...,x10;
 
-Symbol Nnu, nL;
+Symbol Nnu, nL, Ynu;
 symbol xiU, xiF;
 vector tildeL1, tildeL2, tildeL3;
 
