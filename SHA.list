@@ -21,9 +21,8 @@ julia> filename = "utils.tar.gz"
 "utils.tar.gz"
 
 julia> println("sha256: ", bytes2hex(open(sha256, filename)))
-sha256: f090e42bc675fc898cc22215f0cd1485a8fc131701cfc876234e414fc23ee870
+sha256: b493099e69ecbf15b0e60f13236f1f39ed5b898bce7f5a05468794690ff07e77
 
 julia> println("git-tree-sha1: ", Tar.tree_hash(IOBuffer(inflate_gzip(filename))))
-git-tree-sha1: ba0136cd7df226b1f6bec9427f35522f1ca08f9d
-
+git-tree-sha1: 216943e28efd502966b9b00963dcc053f8a8789b
 
