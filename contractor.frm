@@ -105,7 +105,7 @@ symbol f2s1, f2s2, f2s3, f2s4;
 *----------------------------------------
 #procedure Simplification()
 
-id I^2 = -1;
+id im^2 = -1;
 id sqrt2^2 = 2;
 id sqrt2^(-2) = 1/2;
 
@@ -126,8 +126,8 @@ repeat;
   id ONEij(spa?,spa?) = 4;
   id ONEij(spa1?,spa2?)*ONEij(spa2?,spa3?) = ONEij(spa1,spa3);
 
-  id GAij(spa1?,spa2?,rho?ALLLOR) * GAij(spa2?,spa3?,rho?ALLLOR) = diim*ONEij(spa1,spa3);
-  id GAij(spa1?,spa2?,mom?ALLMOM) * GAij(spa2?,spa3?,mom?ALLMOM) = SP(mom,mom)*ONEij(spa1,spa3);
+  id GAij(spa1?,spa2?,rho?LOR) * GAij(spa2?,spa3?,rho?LOR) = diim*ONEij(spa1,spa3);
+  id GAij(spa1?,spa2?,mom?MOM) * GAij(spa2?,spa3?,mom?MOM) = SP(mom,mom)*ONEij(spa1,spa3);
   id GAij(spa1?,spa2?,rho?)*ONEij(spa3?,spa2?) = GAij(spa1,spa3,rho);
   id GAij(spa2?,spa1?,rho?)*ONEij(spa3?,spa2?) = GAij(spa3,spa1,rho);
 
@@ -191,7 +191,7 @@ id Levi(rho1?,rho2?,rho3?,rho4?) = Levi(rho1,rho2,rho3,rho4);
 *
 * vanishing momentum scalar product also vanishes
 *
-id SP(mom?NULL,mom?NULL) = 0;
+id SP(mom?kn,mom?kn) = 0;
 
 *
 * Explain FermionLoopPow and GhostLoopPow
@@ -247,8 +247,8 @@ repeat;
   id Trace(?vars1,PL,PR,?vars2) = 0;
   id Trace(?vars1,PR,PL,?vars2) = 0;
 
-  id Trace(?vars1,GA(rho?ALLLOR),PL,?vars2) = Trace(?vars1,PR,GA(rho),?vars2);
-  id Trace(?vars1,GA(rho?ALLLOR),PR,?vars2) = Trace(?vars1,PL,GA(rho),?vars2);
+  id Trace(?vars1,GA(rho?LOR),PL,?vars2) = Trace(?vars1,PR,GA(rho),?vars2);
+  id Trace(?vars1,GA(rho?LOR),PR,?vars2) = Trace(?vars1,PL,GA(rho),?vars2);
 
   id Trace(?vars1,GA(mom?),PL,?vars2) = Trace(?vars1,PR,GA(mom),?vars2);
   id Trace(?vars1,GA(mom?),PR,?vars2) = Trace(?vars1,PL,GA(mom),?vars2);
@@ -257,13 +257,13 @@ endrepeat;
 
 
 repeat;
-  id FV(mom?,rho?ALLLOR)*Trace(?vars1,GA(rho?ALLLOR),?vars2) = Trace(?vars1,GA(mom),?vars2);
-  id LMT(rho1?ALLLOR,rho2?ALLLOR)*Trace(?vars1,GA(rho2?ALLLOR),?vars2) = Trace(?vars1,GA(rho1),?vars2);
+  id FV(mom?,rho?LOR)*Trace(?vars1,GA(rho?LOR),?vars2) = Trace(?vars1,GA(mom),?vars2);
+  id LMT(rho1?LOR,rho2?LOR)*Trace(?vars1,GA(rho2?LOR),?vars2) = Trace(?vars1,GA(rho1),?vars2);
 
-  id Trace(?vars1,GA(mom?ALLMOM),GA(mom?ALLMOM),?vars2) = SP(mom,mom)*Trace(?vars1,?vars2);
-  id SP(mom?NULL,mom?NULL) = 0;
+  id Trace(?vars1,GA(mom?MOM),GA(mom?MOM),?vars2) = SP(mom,mom)*Trace(?vars1,?vars2);
+  id SP(mom?kn,mom?kn) = 0;
 
-  id Trace(?vars1,GA(rho?ALLLOR),GA(rho?ALLLOR),?vars2) = Trace(?vars1,?vars2)*diim;
+  id Trace(?vars1,GA(rho?LOR),GA(rho?LOR),?vars2) = Trace(?vars1,?vars2)*diim;
 endrepeat;
 .sort
  
@@ -302,14 +302,14 @@ contract;
 .sort
 
 id VecEpsilon?{VecEp,VecEpC}(int?,mom0?,mom?,mass?) = FV(mom0,EPMU[int])*VecEpsilon(int,EPMU[int],mom,mass);
-id mom?NULL.mom?NULL = 0;
+id mom?kn.mom?kn = 0;
 id mom1?.mom2? = SP(mom1,mom2);
-id mom?(rho?ALLLOR) = FV(mom,rho);
+id mom?(rho?LOR) = FV(mom,rho);
 id e_(rho1?,rho2?,rho3?,rho4?) = -I*Levi(rho1,rho2,rho3,rho4);
 .sort
 
 id d_(rho1?,rho2?) = LMT(rho1,rho2);
-repeat id LMT(rho1?ALLLOR,rho2?ALLLOR)*FermionChain(?vars1,GA(rho2?ALLLOR),?vars2) = FermionChain(?vars1,GA(rho1),?vars2);
+repeat id LMT(rho1?LOR,rho2?LOR)*FermionChain(?vars1,GA(rho2?LOR),?vars2) = FermionChain(?vars1,GA(rho1),?vars2);
 .sort
 
 id VecEpsilon?{VecEp,VecEpC}(int?,rho?NonEPMU,mom?,mass?)*FermionChain(?vars1,GA(rho?NonEPMU),?vars2) 
@@ -400,8 +400,8 @@ repeat;
   id ONEij(spa?,spa?) = 4;
   id ONEij(spa1?,spa2?)*ONEij(spa2?,spa3?) = ONEij(spa1,spa3);
 
-  id GAij(spa1?,spa2?,rho?ALLLOR) * GAij(spa2?,spa3?,rho?ALLLOR) = diim*ONEij(spa1,spa3);
-  id GAij(spa1?,spa2?,mom?ALLMOM) * GAij(spa2?,spa3?,mom?ALLMOM) = SP(mom,mom)*ONEij(spa1,spa3);
+  id GAij(spa1?,spa2?,rho?LOR) * GAij(spa2?,spa3?,rho?LOR) = diim*ONEij(spa1,spa3);
+  id GAij(spa1?,spa2?,mom?MOM) * GAij(spa2?,spa3?,mom?MOM) = SP(mom,mom)*ONEij(spa1,spa3);
   id GAij(spa1?,spa2?,rho?)*ONEij(spa3?,spa2?) = GAij(spa1,spa3,rho);
   id GAij(spa2?,spa1?,rho?)*ONEij(spa3?,spa2?) = GAij(spa3,spa1,rho);
 
@@ -429,13 +429,13 @@ id GAij(spa1?,spa2?,var?) = GAij(spa1,spa2,var);
 *
 ***Here var? could be mom? or rho?
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa1?,spa2?,mom?) = FermionChain( ILSPSET[setint](int,?vars), GA(mom), spa2 );
-id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa1?,spa2?,rho?ALLLOR) = FermionChain( ILSPSET[setint](int,?vars), GA(rho), spa2 );
+id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa1?,spa2?,rho?LOR) = FermionChain( ILSPSET[setint](int,?vars), GA(rho), spa2 );
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*PLij(spa1?,spa2?) = FermionChain( ILSPSET[setint](int,?vars), PL, spa2 );
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*PRij(spa1?,spa2?) = FermionChain( ILSPSET[setint](int,?vars), PR, spa2 );
 
 ***flip
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa2?,spa1?,mom?) = -FermionChain( ILSPSET[setint](int,?vars), GA(mom), spa2 );
-id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa2?,spa1?,rho?ALLLOR) = -FermionChain( ILSPSET[setint](int,?vars), GA(rho), spa2 );
+id Spinor?LSPSET[setint](int?,spa1?,?vars)*GAij(spa2?,spa1?,rho?LOR) = -FermionChain( ILSPSET[setint](int,?vars), GA(rho), spa2 );
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*PLij(spa2?,spa1?) = FermionChain( ILSPSET[setint](int,?vars), PL, spa2 );
 id Spinor?LSPSET[setint](int?,spa1?,?vars)*PRij(spa2?,spa1?) = FermionChain( ILSPSET[setint](int,?vars), PR, spa2 );
 
@@ -446,14 +446,14 @@ id Spinor1?LSPSET[setint1](int1?,spa?,?var1)*Spinor2?RSPSET[setint2](int2?,spa?,
 repeat;
 ***Here var? could be mom? or rho?
   id FermionChain(?vars,spa1?)*GAij(spa1?,spa2?,mom?) = FermionChain( ?vars, GA(mom), spa2 );
-  id FermionChain(?vars,spa1?)*GAij(spa1?,spa2?,rho?ALLLOR) = FermionChain( ?vars, GA(rho), spa2 );
+  id FermionChain(?vars,spa1?)*GAij(spa1?,spa2?,rho?LOR) = FermionChain( ?vars, GA(rho), spa2 );
 
   id FermionChain(?vars,spa1?)*PLij(spa1?,spa2?) = FermionChain( ?vars, PL, spa2 );
   id FermionChain(?vars,spa1?)*PRij(spa1?,spa2?) = FermionChain( ?vars, PR, spa2 );
 
 ***flip
   id FermionChain(?vars,spa1?)*GAij(spa2?,spa1?,mom?) = -FermionChain( ?vars, GA(mom), spa2 );
-  id FermionChain(?vars,spa1?)*GAij(spa2?,spa1?,rho?ALLLOR) = -FermionChain( ?vars, GA(rho), spa2 );
+  id FermionChain(?vars,spa1?)*GAij(spa2?,spa1?,rho?LOR) = -FermionChain( ?vars, GA(rho), spa2 );
 
   id FermionChain(?vars,spa1?)*PLij(spa2?,spa1?) = FermionChain( ?vars, PL, spa2 );
   id FermionChain(?vars,spa1?)*PRij(spa2?,spa1?) = FermionChain( ?vars, PR, spa2 );
@@ -470,12 +470,12 @@ repeat;
   id once, GAij(spa1?,spa2?,var?) = Trace(GA(var),spa1,spa2);
   repeat;
     id Trace(?vars,spa1?,spa2?)*GAij(spa2?,spa3?,mom?) = Trace(?vars,GA(mom),spa1,spa3);
-    id Trace(?vars,spa1?,spa2?)*GAij(spa2?,spa3?,rho?ALLLOR) = Trace(?vars,GA(rho),spa1,spa3);
+    id Trace(?vars,spa1?,spa2?)*GAij(spa2?,spa3?,rho?LOR) = Trace(?vars,GA(rho),spa1,spa3);
     id Trace(?vars,spa1?,spa2?)*PLij(spa2?,spa3?) = Trace(?vars,PL,spa1,spa3);
     id Trace(?vars,spa1?,spa2?)*PRij(spa2?,spa3?) = Trace(?vars,PR,spa1,spa3);
 
     id Trace(?vars,spa1?,spa2?)*GAij(spa3?,spa2?,mom?) = -Trace(?vars,GA(mom),spa1,spa3);
-    id Trace(?vars,spa1?,spa2?)*GAij(spa3?,spa2?,rho?ALLLOR) = -Trace(?vars,GA(rho),spa1,spa3);
+    id Trace(?vars,spa1?,spa2?)*GAij(spa3?,spa2?,rho?LOR) = -Trace(?vars,GA(rho),spa1,spa3);
     id Trace(?vars,spa1?,spa2?)*PLij(spa3?,spa2?) = Trace(?vars,PL,spa1,spa3);
     id Trace(?vars,spa1?,spa2?)*PRij(spa3?,spa2?) = Trace(?vars,PR,spa1,spa3);
   endrepeat;
@@ -502,15 +502,15 @@ endrepeat;
 
 
 repeat;
-  id FV(mom?,rho?ALLLOR)*FermionChain(?vars1,GA(rho?ALLLOR),?vars2) = FermionChain(?vars1,GA(mom),?vars2);
-  id LMT(rho1?ALLLOR,rho2?ALLLOR)*FermionChain(?vars1,GA(rho1?ALLLOR),?vars2) = FermionChain(?vars1,GA(rho2),?vars2);
+  id FV(mom?,rho?LOR)*FermionChain(?vars1,GA(rho?LOR),?vars2) = FermionChain(?vars1,GA(mom),?vars2);
+  id LMT(rho1?LOR,rho2?LOR)*FermionChain(?vars1,GA(rho1?LOR),?vars2) = FermionChain(?vars1,GA(rho2),?vars2);
 endrepeat;
 .sort
 
 repeat;
   id FermionChain(?vars1,GA(mom?),GA(mom?),?vars2) = SP(mom,mom)*FermionChain(?vars1,?vars2);
-  id SP(mom?NULL,mom?NULL) = 0;
-  id FermionChain(?vars1,GA(rho?ALLLOR),GA(rho?ALLLOR),?vars2) = diim*FermionChain(?vars1,?vars2);
+  id SP(mom?kn,mom?kn) = 0;
+  id FermionChain(?vars1,GA(rho?LOR),GA(rho?LOR),?vars2) = diim*FermionChain(?vars1,?vars2);
 
 *** Dirac equation for U and V (UB and VB) 
   id FermionChain( ?vars, GA(mom?), U(int?,mom?,0) ) = 0;
