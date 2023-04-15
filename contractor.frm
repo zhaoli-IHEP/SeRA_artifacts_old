@@ -305,7 +305,7 @@ id VecEpsilon?{VecEp,VecEpC}(int?,mom0?,mom?,mass?) = FV(mom0,EPMU[int])*VecEpsi
 id mom?kn.mom?kn = 0;
 id mom1?.mom2? = SP(mom1,mom2);
 id mom?(rho?LOR) = FV(mom,rho);
-id e_(rho1?,rho2?,rho3?,rho4?) = -I*Levi(rho1,rho2,rho3,rho4);
+id e_(rho1?,rho2?,rho3?,rho4?) = -im*Levi(rho1,rho2,rho3,rho4);
 .sort
 
 id d_(rho1?,rho2?) = LMT(rho1,rho2);

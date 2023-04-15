@@ -19,8 +19,8 @@ function main()::Nothing
     bytes2hex(sha256(file))
   end
 
-  println( "git-tree-sha1: ", calc_hash )
-  println("sha256: ", bytes2hex(open(sha256, filename)))
+  println( "git-tree-sha1: ", bytes2hex(sha1(calc_hash)) )
+  println( "sha256: ", bytes2hex(open(sha256, filename)) )
 
   rm( temp_dir; force=true, recursive=true )
 
