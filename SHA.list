@@ -16,8 +16,9 @@ julia> calc_sha256("Wplus_t_TO_Wplus_t_3Loop_amplitudes/amp935.jld2")
 tar cjvf utils.tar.bz2 contractor.frm vac_reduction_scripts
 
 > julia calc_SHA.jl
-git-tree-sha1: 36b2a5c53897721d6ea3ec49ba9a0dbf56c643ce
-sha256: 1d0ace5b1c81ab6cb921cc3c4c1d8d055390919cbae489b9016230333f83a664
+git-tree-sha1: 8c177dafd078b05b191ed7224b576434ee5f7a11
+sha256: 431b40e4b983787bcff787e190e1d8eb64c8a467bce9d85113b98f3d105a7ec1
+
 
 
 
