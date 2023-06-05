@@ -1,23 +1,23 @@
 
-julia> using AmpTools
+julia> using FeynUtils
 
 julia> calc_sha256("b_g_TO_Wminus_t_2Loop_amplitudes/amp209.jld2")
-"f4de604d8b56fe35d8f4313ff5e8d53187c10a30af5df0b78dfb1e1a1eca6c52"
+"a474842c461ef3a83e1c1b028530eb83b171958f548f9c0a5a7ca3ecf8e0b530"
 
 julia> calc_sha256("Wplus_t_TO_Wplus_t_3Loop_amplitudes/amp99.jld2")
-"ad2ac7b875d475347660650e231031501be0c8904c08666b5e9e0da2ffc265b5"
+"f26ce10d6545abda4629b183ea81a93d2f9fa149e55a0a577f61543c837a39ee"
 
 julia> calc_sha256("Wplus_t_TO_Wplus_t_3Loop_amplitudes/amp935.jld2")
-"fd0a3748dfe95678e47b67ed7629bdb5aed631ed640fd0d4c554274f45d4baee"
-
+"6b0fefd99ad19d3bffdd338d9aaa046d6a6c958781a6421e78bfee8d96b7a035"
 
 -------------------------
 
 tar cjvf utils.tar.bz2 contractor.frm vac_reduction_scripts
 
 > julia calc_SHA.jl
-git-tree-sha1: 321816dcfedeb48a353f97b1f70b353886949c36
-sha256: 57850df27b2daf55deb0a471951d59c9147e393c4898c974b7542b3959664e01
+git-tree-sha1: 882f98067a87954a8bea3e768da21f6b25f52428
+sha256: e5ef8c6e29cfc0a2f02c11e47120680c9e44d9b19a28b8dcf68d7f5082b1fc77
+
 
 
 
